@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app ="myFirstApp"><!--ng-app means angular application, name if ngapp should match with app.js name-->
+  <head>
+    <meta charset="utf-8">
+    <script src = "angular.min.js"></script>
+    <script src = "app.js"></script>
+    <title>hey People</title>
+  </head>
+  <body>
+    <h1> Angular Application Mate!!! </h1>
+    <div ng-controller="myFirstController"> <!--responsible for some portion of page and data binding with view and controller in app.js-->
+      {{sayHello()}}
+      <input type ="text" ng-model="name"><!-- changing name property with ng-model-->
+      {{name}}<!-- this double flower brackets is expression and name is within the scope of this controller which is defined in app.js using $scope-->
+    </div>
+  </body>
+</html>
