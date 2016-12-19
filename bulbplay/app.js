@@ -10,10 +10,10 @@
     $scope.state = "off";
     $scope.switchBulb = function () {
         if($scope.currentState === 0){
-          $scope.state = "off";
+          $scope.state = "on";
           $scope.currentState = 1;
         }else{
-          $scope.state = "on";
+          $scope.state = "off";
           $scope.currentState = 0;
         }
       }
