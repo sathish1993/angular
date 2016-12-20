@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src = "angular.min.js"></script>
+    <script src = "app.js"></script>
+    <title>Bulb Application</title>
+  </head>
+
+  <body ng-app ="BulbApp">
+    <h1> Bulb Magic Mate!!! </h1>
+    <div ng-controller ="BulbController">
+      <div>
+          Click the button to see the magic:
+          <button ng-click="switchBulb()">Click me</button> <br><br>
+          <img src = "pic_bulb{{state}}.gif"><br>
+          Current Bulb state is {{stateMessage()}} <br>
+          Current Bulb State with customFilter Argument is {{stateMessage() | success : 'Yay!!'}}<br><!-- custom filter calling from html-->
+          Current Bulb State with customFilter Argument and inbuilt filter is {{stateMessage() | success : 'Yay!!' | uppercase}}<br><!-- custom filter calling from html with inbuilt filter i.e. result of one filter is passed on to next one-->
+          Number of times button clicked : {{buttonClickCount | currency : "#" : 0}}
+      </div>
+    </div>
+  </body>
+
+
+</html>

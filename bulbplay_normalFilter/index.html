@@ -13,7 +13,9 @@
       <div>
           Click the button to see the magic:
           <button ng-click="switchBulb()">Click me</button> <br><br>
-          <img src = "pic_bulb{{state}}.gif">
+          <img src = "pic_bulb{{state}}.gif"><br>
+          Current Bulb state is {{stateMessage}} <br>
+          Number of times button clicked : {{buttonClickCount | currency : "#" : 0}}
       </div>
     </div>
   </body>
