@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src = "angular.min.js"></script>
+    <script src = "app.js"></script>
+    <title> ShoppingApp with custom service</title>
+  </head>
+  <body ng-app = "ShoppingApp">
+    <h1> Shop Items </h1>
+    <div ng-controller="AddItemController as item">
+        <input type = "text" ng-model="item.itemName" placeholder = "Enter Name of the item">
+        <input type = "text" ng-model="item.itemQuantity" placeholder = "Enter Quantity ">
+        <button ng-click = "item.addItem()"> Add Item </button>
+    </div><br><br>
+
+    <div ng-controller="DisplayItemController as display">
+      <ol>
+        <input type = "text" ng-model="item.itemName" placeholder = "Enter item to search">
+      <li ng-repeat = "value in display.items|filter : item.itemName"> {{value.quantity}} of {{value.name}}
+      <button ng-click = "display.removeItem($index)"> Remove this item </button>
+      </li>
+      </ol>
+    </div>
+  </body>
+</html>
