@@ -23,8 +23,6 @@
               }
             }
             $scope.itemCount = count;
-            console.log($scope.items);
-            console.log($scope.itemCount);
             if($scope.itemCount <= 3 && $scope.itemCount >= 1){
               $scope.message = "Enjoy!";
               $scope.color = "green";
