@@ -1,70 +1,9 @@
-(function () {
-  'use strict';
-
-  angular.module('ShoppingListCheckOff',[])
-  .controller('ToBuyController',ToBuyController)
-  .controller('AlreadyBoughtController',AlreadyBoughtController)
-  .service('ShoppingListCheckOffService',ShoppingListCheckOffService);
-
-  ToBuyController.$inject = ['ShoppingListCheckOffService'];
-  function ToBuyController(ShoppingListCheckOffService) {
-    var buy = this;
-    buy.lengthCheck = false;
-    buy.toBuyItems = ShoppingListCheckOffService.gettoBuyItems();
-    buy.buyItem = function (item_Quantity,item_Name,index) {
-      ShoppingListCheckOffService.buyItem(item_Name,item_Quantity,index);
-      if(buy.toBuyItems.length == 0){
-        buy.lengthCheck = true;
-      }
-    }
-  };
-
-  AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
-  function AlreadyBoughtController(ShoppingListCheckOffService) {
-    var bought = this;
-    bought.lengthCheck = true;
-    bought.boughtItems = ShoppingListCheckOffService.getItems();
-  };
-
-  function ShoppingListCheckOffService() {
-    var service = this;
-
-    var itemsToBuy = [
-      {
-        name : 'Milk',
-        quantity : '10'
-      },
-      {
-        name : 'Cookie',
-        quantity : '5'
-      },
-      {
-        name : 'Oreo',
-        quantity : '15'
-      },
-      {
-        name : 'Maaza',
-        quantity : '3'
-      },
-      {
-        name : 'Lays',
-        quantity : 5
-      }];
-
-    var itemsBought = [];
-    service.buyItem = function (item_Name,item_Quantity,index) {
-      var newItem = { name : item_Name, quantity : item_Quantity};
-      itemsBought.push(newItem);
-      itemsToBuy.splice(index,1);
-    }
-
-    service.gettoBuyItems = function () {
-      return itemsToBuy;
-    }
-
-    service.getItems = function () {
-      return itemsBought;
-    }
-
-  }
-})();
+!function(){"use strict";function t(t){var e=this;e.lengthCheck=!1,e.toBuyItems=t.gettoBuyItems(),
+  e.buyItem=function(n,i,o){t.buyItem(i,n,o),0==e.toBuyItems.length&&(e.lengthCheck=!0)}}
+  function e(t){var e=this;e.boughtItems=t.getItems()}
+  function n(){var t=this,e=[{name:"Milk",quantity:"10"},{name:"Cookie",quantity:"5"},{name:"Oreo",quantity:"15"},
+  {name:"Maaza",quantity:"3"},{name:"Lays",quantity:5}],n=[];t.buyItem=function(t,i,o)
+  {var u={name:t,quantity:i};
+  n.push(u),e.splice(o,1)},t.gettoBuyItems=function(){return e},t.getItems=function(){return n}}
+  angular.module("ShoppingListCheckOff",[]).controller("ToBuyController",t).controller("AlreadyBoughtController",e).
+  service("ShoppingListCheckOffService",n),t.$inject=["ShoppingListCheckOffService"],e.$inject=["ShoppingListCheckOffService"]}();
