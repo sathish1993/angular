@@ -1,0 +1,8 @@
+<ol>
+  <li ng-repeat = "item in narrow.found">
+    {{item.name}}<br>{{item.short_name}}<br>{{item.description}} <br>
+    <button ng-click="narrow.onRemove($index);">Don't want this one!</button>
+  </li>
+</ol>
+<div class="error" ng-if="narrow.nullCheck()">
+  <h3>Nothing Found! </h3> </div>
